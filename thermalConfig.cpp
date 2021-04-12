@@ -53,6 +53,70 @@ namespace thermal {
 	constexpr std::string_view socIDPath("/sys/devices/soc0/soc_id");
 	constexpr std::string_view hwPlatformPath("/sys/devices/soc0/hw_platform");
 
+	std::vector<std::string> cpu_sensors_439 =
+	{
+		"apc1-cpu0-usr",
+		"apc1-cpu1-usr",
+		"apc1-cpu2-usr",
+		"apc1-cpu3-usr",
+		"cpuss0-usr",
+		"cpuss0-usr",
+		"cpuss0-usr",
+		"cpuss0-usr",
+	};
+
+	std::vector<struct target_therm_cfg> sensor_cfg_439 =
+	{
+		{
+			TemperatureType::CPU,
+			cpu_sensors_439,
+			"",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpu-usr" },
+			"GPU",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::SKIN,
+			{ "quiet-therm-adc" },
+			"skin",
+			40000,
+			95000,
+			true,
+		},
+		{
+			TemperatureType::BCL_VOLTAGE,
+			{ "vbat_adc" },
+			"vbat",
+			3200,
+			3000,
+			false,
+		},
+		{
+			TemperatureType::BCL_CURRENT,
+			{ "ibat-high" },
+			"ibat",
+			4200,
+			4400,
+			true,
+		},
+		{
+			TemperatureType::BCL_PERCENTAGE,
+			{ "soc" },
+			"soc",
+			10,
+			2,
+			false,
+		},
+	};
+
 	std::vector<std::string> cpu_sensors_bengal =
 	{
 		"cpuss-2-usr",
@@ -2082,6 +2146,12 @@ std::vector<std::string> cpu_sensors_cliffs = {
 
 	const std::unordered_map<int, std::vector<struct target_therm_cfg>>
 		msm_soc_map = {
+		{353, sensor_cfg_439},
+		{354, sensor_cfg_439},
+		{363, sensor_cfg_439},
+		{364, sensor_cfg_439},
+		{416, sensor_cfg_439},
+		{437, sensor_cfg_439},
 		{355, sensor_cfg_talos_common},
 		{377, sensor_cfg_sa6155_common}, // auto
 		{380, sensor_cfg_sa6155_common}, // auto
