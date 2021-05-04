@@ -117,6 +117,61 @@ namespace thermal {
 		},
 	};
 
+	std::vector<std::string> cpu_sensors_sdm845 =
+	{
+		"cpu0-silver-usr",
+		"cpu1-silver-usr",
+		"cpu2-silver-usr",
+		"cpu3-silver-usr",
+		"cpu0-gold-usr",
+		"cpu1-gold-usr",
+		"cpu2-gold-usr",
+		"cpu3-gold-usr",
+	};
+
+	std::vector<struct target_therm_cfg> sensor_cfg_sdm845 = {
+		{
+			TemperatureType::CPU,
+			cpu_sensors_sdm845,
+			"",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{"gpu0-usr"},
+			"gpu0",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{"gpu1-usr"},
+			"gpu1",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::SKIN,
+			{"xo-therm-adc"},
+			"skin",
+			40000,
+			95000,
+			true,
+		},
+		{
+			TemperatureType::BCL_PERCENTAGE,
+			{"soc"},
+			"soc",
+			10,
+			2,
+			false,
+		},
+	};
+
 	std::vector<std::string> cpu_sensors_bengal =
 	{
 		"cpuss-2-usr",
@@ -2152,6 +2207,8 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{364, sensor_cfg_439},
 		{416, sensor_cfg_439},
 		{437, sensor_cfg_439},
+		{321, sensor_cfg_sdm845},
+		{341, sensor_cfg_sdm845},
 		{355, sensor_cfg_talos_common},
 		{377, sensor_cfg_sa6155_common}, // auto
 		{380, sensor_cfg_sa6155_common}, // auto
