@@ -864,6 +864,63 @@ namespace thermal {
 		},
 	};
 
+	std::vector<struct target_therm_cfg>  diwali_common = {
+		{
+			TemperatureType::CPU,
+			cpu_sensors_waipio,
+			"",
+			95000,
+			115000,
+			true,
+			ThrottlingSeverity::LIGHT,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-0" },
+			"GPU0",
+			95000,
+			115000,
+			true,
+			ThrottlingSeverity::LIGHT,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-1" },
+			"GPU1",
+			95000,
+			115000,
+			true,
+			ThrottlingSeverity::LIGHT,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nspss-0" },
+			"nsp0",
+			95000,
+			115000,
+			true,
+			ThrottlingSeverity::LIGHT,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nspss-1" },
+			"nsp1",
+			95000,
+			115000,
+			true,
+			ThrottlingSeverity::LIGHT,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nspss-2" },
+			"nsp2",
+			95000,
+			115000,
+			true,
+			ThrottlingSeverity::LIGHT,
+		},
+	};
+
 	std::vector<struct target_therm_cfg>  waipio_specific = {
 		{
 			TemperatureType::BCL_CURRENT,
@@ -1037,6 +1094,7 @@ namespace thermal {
 			46000,
 			95000,
 			true,
+			ThrottlingSeverity::LIGHT,
 		},
 	};
 
@@ -1929,9 +1987,9 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{457, waipio_common}, //Waipio
 		{482, waipio_common}, //Waipio
 		{552, waipio_common}, //Waipio-LTE
-		{506, waipio_common}, //diwali
-		{547, waipio_common}, //diwali
-		{564, waipio_common}, //diwali-LTE
+		{506, diwali_common}, //diwali
+		{547, diwali_common}, //diwali
+		{564, diwali_common}, //diwali-LTE
 		{530, waipio_common}, // cape
 		{531, waipio_common}, // cape
 		{540, waipio_common}, // cape
