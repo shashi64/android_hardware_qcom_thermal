@@ -1942,6 +1942,56 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		},
 	};
 
+	std::vector<std::string> cpu_sensors_ravelin =
+	{
+		"cpu-0-0",
+		"cpu-0-1",
+		"cpu-0-2",
+		"cpu-0-3",
+		"cpu-0-4",
+		"cpu-0-5",
+		"cpu-1-0",
+		"cpu-1-2",
+	};
+
+	std::vector<struct target_therm_cfg>  ravelin_common = {
+		{
+			TemperatureType::CPU,
+			cpu_sensors_parrot,
+			"",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss" },
+			"GPU",
+			95000,
+			115000,
+			true,
+		},
+	};
+
+	std::vector<struct target_therm_cfg>  ravelin_specific = {
+		{
+			TemperatureType::BCL_CURRENT,
+			{ "pm7250b-ibat-lvl0" },
+			"ibat",
+			6000,
+			7500,
+			true,
+		},
+		{
+			TemperatureType::SKIN,
+			{ "xo-therm" },
+			"skin",
+			55000,
+			95000,
+			true,
+		},
+	};
+
 	const std::unordered_map<int, std::vector<struct target_therm_cfg>>
 		msm_soc_map = {
 		{355, sensor_cfg_talos_common},
@@ -2015,6 +2065,9 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{525, neo_common},
 		{554, neo_common},
 		{537, parrot_common},
+		{568, ravelin_common}, //Clarence Mobile
+		{581, ravelin_common}, //Clarence IOT
+		{582, ravelin_common}, //Clarence IOT without modem
 	};
 
 	const std::unordered_map<int, std::vector<struct target_therm_cfg>>
@@ -2053,6 +2106,9 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{549, anorak_specific},
 		{649, anorak_specific}, // Halliday Pro
 		{537, parrot_specific},
+		{568, ravelin_specific}, //Clarence Mobile
+		{581, ravelin_specific}, //Clarence IOT
+		{582, ravelin_specific}, //Clarence IOT without modem
 	};
 
 	const std::unordered_map<int, bool>
