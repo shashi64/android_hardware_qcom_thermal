@@ -1042,6 +1042,176 @@ namespace implementation {
 		},
 	};
 
+	std::vector<std::string> cpu_sensors_pineapple = {
+		"cpu-0-0-0",
+		"cpu-0-1-0",
+		"cpu-2-0-0",
+		"cpu-2-1-0",
+		"cpu-2-2-0",
+		"cpu-1-0-0",
+		"cpu-1-1-0",
+		"cpu-1-2-0",
+	};
+
+	std::vector<struct target_therm_cfg> pineapple_common = {
+		{
+			TemperatureType::CPU,
+			cpu_sensors_pineapple,
+			"",
+			95000,
+			115000,
+			95000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-0" },
+			"GPU0",
+			95000,
+			115000,
+			95000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-1" },
+			"GPU1",
+			95000,
+			115000,
+			95000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-2" },
+			"GPU2",
+			95000,
+			115000,
+			95000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-3" },
+			"GPU3",
+			95000,
+			115000,
+			95000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-4" },
+			"GPU4",
+			95000,
+			115000,
+			95000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-5" },
+			"GPU5",
+			95000,
+			115000,
+			95000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-6" },
+			"GPU6",
+			95000,
+			115000,
+			95000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-7" },
+			"GPU7",
+			95000,
+			115000,
+			95000,
+			true,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nsphvx-0" },
+			"nsp0",
+			100000,
+			115000,
+			100000,
+			true,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nsphvx-1" },
+			"nsp1",
+			100000,
+			115000,
+			100000,
+			true,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nsphmx-0" },
+			"nsp2",
+			100000,
+			115000,
+			100000,
+			true,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nsphmx-1" },
+			"nsp3",
+			100000,
+			115000,
+			100000,
+			true,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nsphmx-2" },
+			"nsp4",
+			100000,
+			115000,
+			100000,
+			true,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nsphmx-3" },
+			"nsp5",
+			100000,
+			115000,
+			100000,
+			true,
+		},
+	};
+
+	std::vector<struct target_therm_cfg>  pineapple_specific = {
+		{
+			TemperatureType::BCL_CURRENT,
+			{ "pm8550b-ibat-lvl0" },
+			"ibat",
+			9000,
+			10000,
+			9000,
+			true,
+		},
+		{
+			TemperatureType::SKIN,
+			{ "skin-msm-therm" },
+			"skin",
+			46500,
+			95000,
+			46500,
+			true,
+		},
+	};
+
 	const std::unordered_map<int, std::vector<struct target_therm_cfg>>
 		msm_soc_map = {
 		{417, sensor_cfg_bengal}, // bengal
@@ -1088,6 +1258,8 @@ namespace implementation {
 		{536, kalama_common}, //Kalamap
 		{600, kalama_common}, //Kalama_sg
 		{601, kalama_common}, //Kalamap_sg
+		{557, pineapple_specific}, //Pineapple
+		{577, pineapple_specific}, //Pineapplep
 	};
 
 	const std::unordered_map<int, std::vector<struct target_therm_cfg>>
@@ -1110,6 +1282,8 @@ namespace implementation {
 		{536, kalama_specific}, //Kalamap
 		{600, kalama_specific}, //Kalama_sg
 		{601, kalama_specific}, //Kalamap_sg
+		{557, pineapple_specific}, //Pineapple
+		{577, pineapple_specific}, //Pineapplep
 	};
 
 	std::vector<struct target_therm_cfg> add_target_config(
