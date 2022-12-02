@@ -2005,6 +2005,11 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{469, sensor_cfg_bengal},
 		{470, sensor_cfg_bengal},
 		{518, sensor_cfg_khaje},  //khaje
+		{561, sensor_cfg_khaje},  //khajeP
+		{562, sensor_cfg_khaje},  //khajeQ
+		{584, sensor_cfg_khaje},  //khajeXR
+		{585, sensor_cfg_khaje},  //khajeG
+		{586, sensor_cfg_khaje},  //khajeIOT
 		{394, sensor_cfg_trinket},
 		{467, sensor_cfg_trinket},
 		{468, sensor_cfg_trinket},
