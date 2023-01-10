@@ -2053,6 +2053,8 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{536, kalama_common}, //Kalamap
 		{600, kalama_common}, //Kalama_sg
 		{601, kalama_common}, //Kalamap_sg
+		{603, kalama_common}, //Kalama_qcs
+		{604, kalama_common}, //Kalama_qcm
 		{557, pineapple_common}, //Pineapple
 		{577, pineapple_common}, //Pineapplep
 		{632, cliffs_common}, //cliffs
@@ -2098,6 +2100,8 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{536, kalama_specific}, //Kalamap
 		{600, kalama_specific}, //Kalama_sg
 		{601, kalama_specific}, //Kalamap_sg
+		{603, kalama_specific}, //Kalama_qcs
+		{604, kalama_specific}, //Kalama_qcm
 		{557, pineapple_specific}, //Pineapple
 		{577, pineapple_specific}, //Pineapplep
 		{632, cliffs_specific}, //cliffs
