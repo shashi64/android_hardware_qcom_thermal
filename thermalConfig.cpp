@@ -1258,8 +1258,8 @@ namespace implementation {
 		{536, kalama_common}, //Kalamap
 		{600, kalama_common}, //Kalama_sg
 		{601, kalama_common}, //Kalamap_sg
-		{557, pineapple_specific}, //Pineapple
-		{577, pineapple_specific}, //Pineapplep
+		{557, pineapple_common}, //Pineapple
+		{577, pineapple_common}, //Pineapplep
 	};
 
 	const std::unordered_map<int, std::vector<struct target_therm_cfg>>
