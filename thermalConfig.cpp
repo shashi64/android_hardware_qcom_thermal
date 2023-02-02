@@ -1958,7 +1958,7 @@ std::vector<std::string> cpu_sensors_cliffs = {
 	std::vector<struct target_therm_cfg>  ravelin_common = {
 		{
 			TemperatureType::CPU,
-			cpu_sensors_parrot,
+			cpu_sensors_ravelin,
 			"",
 			95000,
 			115000,
@@ -1977,7 +1977,7 @@ std::vector<std::string> cpu_sensors_cliffs = {
 	std::vector<struct target_therm_cfg>  ravelin_specific = {
 		{
 			TemperatureType::BCL_CURRENT,
-			{ "pm7250b-ibat-lvl0" },
+			{ "pmi632-ibat-lvl0" },
 			"ibat",
 			6000,
 			7500,
@@ -1985,7 +1985,7 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		},
 		{
 			TemperatureType::SKIN,
-			{ "sys-therm6" },
+			{ "sys-therm-1" },
 			"skin",
 			55000,
 			95000,
