@@ -2462,6 +2462,17 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{578, sensor_cfg_holi}, //conic
 		{475, sensor_cfg_yupik}, // yupik
 		{515, sensor_cfg_yupik}, // YUPIK-LTE
+		{576, sensor_cfg_yupik}, // yupik qcm5430 modem
+		{575, sensor_cfg_yupik}, // yupik qcm5430
+		{567, sensor_cfg_yupik}, // yupik
+		{563, sensor_cfg_yupik}, // yupik
+		{553, sensor_cfg_yupik}, // yupik
+		{546, sensor_cfg_yupik}, // yupik
+		{499, sensor_cfg_yupik}, // yupik
+		{498, sensor_cfg_yupik}, // yupik-iot
+		{497, sensor_cfg_yupik}, // yupik-iot mdm
+		{488, sensor_cfg_yupik}, // yupik
+		{487, sensor_cfg_yupik}, // yupik
 		{457, waipio_common}, //Waipio
 		{482, waipio_common}, //Waipio
 		{552, waipio_common}, //Waipio-LTE
