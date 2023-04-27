@@ -32,18 +32,23 @@
  * SPDX-License-Identifier: BSD-3-Clause-Clear
  */
 
+ /* Changes from Qualcomm Innovation Center are provided under the following license:
+
+Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+SPDX-License-Identifier: BSD-3-Clause-Clear */
+
 #include <unordered_map>
 #include <android-base/logging.h>
-#include <android/hardware/thermal/2.0/IThermal.h>
+#include <aidl/android/hardware/thermal/BnThermal.h>
 
 #include "thermalData.h"
 #include "thermalConfig.h"
 
+namespace aidl {
 namespace android {
 namespace hardware {
 namespace thermal {
-namespace V2_0 {
-namespace implementation {
+
 	constexpr std::string_view socIDPath("/sys/devices/soc0/soc_id");
 
 	std::vector<std::string> cpu_sensors_bengal =
@@ -66,7 +71,6 @@ namespace implementation {
 			"",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -75,7 +79,6 @@ namespace implementation {
 			"GPU",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -84,7 +87,6 @@ namespace implementation {
 			"skin",
 			40000,
 			95000,
-			40000,
 			true,
 		},
 		{
@@ -93,7 +95,6 @@ namespace implementation {
 			"vbat",
 			3000,
 			2800,
-			3000,
 			false,
 		},
 		{
@@ -102,7 +103,6 @@ namespace implementation {
 			"ibat",
 			4000,
 			4200,
-			4000,
 			true,
 		},
 		{
@@ -111,7 +111,6 @@ namespace implementation {
 			"soc",
 			10,
 			2,
-			10,
 			false,
 		},
 	};
@@ -135,7 +134,6 @@ namespace implementation {
 			"",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -144,7 +142,6 @@ namespace implementation {
 			"GPU",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -153,7 +150,6 @@ namespace implementation {
 			"skin",
 			40000,
 			95000,
-			40000,
 			true,
 		},
 		{
@@ -162,7 +158,6 @@ namespace implementation {
 			"vbat",
 			3000,
 			2800,
-			3000,
 			false,
 		},
 		{
@@ -171,7 +166,6 @@ namespace implementation {
 			"ibat",
 			5500,
 			6000,
-			5500,
 			true,
 		},
 		{
@@ -180,7 +174,6 @@ namespace implementation {
 			"soc",
 			10,
 			2,
-			10,
 			false,
 		},
 	};
@@ -205,7 +198,6 @@ namespace implementation {
 			"",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -214,7 +206,6 @@ namespace implementation {
 			"GPU",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -223,7 +214,6 @@ namespace implementation {
 			"skin",
 			40000,
 			95000,
-			40000,
 			true,
 		},
 		{
@@ -232,7 +222,6 @@ namespace implementation {
 			"vbat",
 			3000,
 			2800,
-			3000,
 			false,
 		},
 		{
@@ -241,7 +230,6 @@ namespace implementation {
 			"ibat",
 			4000,
 			4200,
-			4000,
 			true,
 		},
 		{
@@ -250,7 +238,6 @@ namespace implementation {
 			"soc",
 			10,
 			2,
-			10,
 			false,
 		},
 	};
@@ -275,7 +262,6 @@ namespace implementation {
 			"",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -284,7 +270,6 @@ namespace implementation {
 			"GPU",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -293,7 +278,6 @@ namespace implementation {
 			"skin",
 			40000,
 			95000,
-			40000,
 			true,
 		},
 		{
@@ -302,7 +286,6 @@ namespace implementation {
 			"ibat",
 			4500,
 			5000,
-			4500,
 			true,
 		},
 		{
@@ -311,7 +294,6 @@ namespace implementation {
 			"vbat",
 			3200,
 			3000,
-			3200,
 			false,
 		},
 		{
@@ -320,7 +302,6 @@ namespace implementation {
 			"soc",
 			10,
 			2,
-			10,
 			false,
 		},
 	};
@@ -333,7 +314,6 @@ namespace implementation {
 			"",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -342,7 +322,6 @@ namespace implementation {
 			"GPU",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -351,7 +330,6 @@ namespace implementation {
 			"skin",
 			40000,
 			95000,
-			40000,
 			true,
 		},
 		{
@@ -360,7 +338,6 @@ namespace implementation {
 			"vbat",
 			3000,
 			2800,
-			3000,
 			false,
 		},
 		{
@@ -369,7 +346,6 @@ namespace implementation {
 			"ibat",
 			5500,
 			6000,
-			5500,
 			true,
 		},
 		{
@@ -378,7 +354,6 @@ namespace implementation {
 			"soc",
 			10,
 			2,
-			10,
 			false,
 		},
 	};
@@ -391,7 +366,6 @@ namespace implementation {
 			"",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -400,7 +374,6 @@ namespace implementation {
 			"gpu0",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -409,7 +382,6 @@ namespace implementation {
 			"gpu1",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -418,7 +390,6 @@ namespace implementation {
 			"skin",
 			40000,
 			95000,
-			40000,
 			true,
 		},
 		{
@@ -427,7 +398,6 @@ namespace implementation {
 			"ibat",
 			5500,
 			6000,
-			5500,
 			true,
 		},
 	};
@@ -451,7 +421,6 @@ namespace implementation {
 			"",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -460,7 +429,6 @@ namespace implementation {
 			"gpu0",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -469,7 +437,6 @@ namespace implementation {
 			"gpu1",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -478,7 +445,6 @@ namespace implementation {
 			"skin",
 			40000,
 			95000,
-			40000,
 			true,
 		},
 		{
@@ -487,7 +453,6 @@ namespace implementation {
 			"ibat",
 			4500,
 			5000,
-			4500,
 			true,
 		},
 		{
@@ -496,7 +461,6 @@ namespace implementation {
 			"vbat",
 			3200,
 			3000,
-			3200,
 			false,
 		},
 		{
@@ -505,7 +469,6 @@ namespace implementation {
 			"soc",
 			10,
 			2,
-			10,
 			false,
 		},
 	};
@@ -517,7 +480,6 @@ namespace implementation {
 			"",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -526,7 +488,6 @@ namespace implementation {
 			"GPU0",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -535,7 +496,6 @@ namespace implementation {
 			"GPU1",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -544,7 +504,6 @@ namespace implementation {
 			"skin",
 			40000,
 			95000,
-			40000,
 			true,
 		}
 	};
@@ -556,7 +515,6 @@ namespace implementation {
 			"ibat",
 			4500,
 			5000,
-			4500,
 			true,
 		},
 		{
@@ -565,7 +523,6 @@ namespace implementation {
 			"vbat",
 			3200,
 			3000,
-			3200,
 			false,
 		},
 		{
@@ -574,7 +531,6 @@ namespace implementation {
 			"soc",
 			10,
 			2,
-			10,
 			false,
 		},
 		{
@@ -583,7 +539,6 @@ namespace implementation {
 			"npu",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 	};
@@ -607,7 +562,6 @@ namespace implementation {
 			"",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -616,7 +570,6 @@ namespace implementation {
 			"GPU0",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -625,7 +578,6 @@ namespace implementation {
 			"GPU1",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -634,7 +586,6 @@ namespace implementation {
 			"ibat",
 			6000,
 			7500,
-			6000,
 			true,
 		},
 		{
@@ -643,7 +594,6 @@ namespace implementation {
 			"nsp0",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -652,7 +602,6 @@ namespace implementation {
 			"nsp1",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -661,7 +610,6 @@ namespace implementation {
 			"nsp2",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 	};
@@ -673,7 +621,6 @@ namespace implementation {
 			"skin",
 			55000,
 			95000,
-			55000,
 			true,
 		},
 	};
@@ -685,7 +632,6 @@ namespace implementation {
 			"skin",
 			40000,
 			95000,
-			40000,
 			true,
 		},
 	};
@@ -697,7 +643,6 @@ namespace implementation {
 			"",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -706,7 +651,6 @@ namespace implementation {
 			"GPU0",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -715,7 +659,6 @@ namespace implementation {
 			"GPU1",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -724,7 +667,6 @@ namespace implementation {
 			"nsp0",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -733,7 +675,6 @@ namespace implementation {
 			"nsp1",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -742,7 +683,6 @@ namespace implementation {
 			"skin",
 			40000,
 			95000,
-			40000,
 			true,
 		},
 	};
@@ -766,7 +706,6 @@ namespace implementation {
 			"",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -775,7 +714,6 @@ namespace implementation {
 			"GPU0",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -784,7 +722,6 @@ namespace implementation {
 			"GPU1",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -793,7 +730,6 @@ namespace implementation {
 			"nsp0",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -802,7 +738,6 @@ namespace implementation {
 			"nsp1",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -811,7 +746,6 @@ namespace implementation {
 			"nsp2",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 	};
@@ -823,7 +757,6 @@ namespace implementation {
 			"ibat",
 			6000,
 			7500,
-			6000,
 			true,
 		},
 		{
@@ -832,7 +765,6 @@ namespace implementation {
 			"skin",
 			55000,
 			95000,
-			55000,
 			true,
 		},
 	};
@@ -856,7 +788,6 @@ namespace implementation {
 			"",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -865,7 +796,6 @@ namespace implementation {
 			"GPU0",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -874,7 +804,6 @@ namespace implementation {
 			"GPU1",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -883,7 +812,6 @@ namespace implementation {
 			"GPU2",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -892,7 +820,6 @@ namespace implementation {
 			"GPU3",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -901,7 +828,6 @@ namespace implementation {
 			"GPU4",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -910,7 +836,6 @@ namespace implementation {
 			"GPU5",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -919,7 +844,6 @@ namespace implementation {
 			"GPU6",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -928,7 +852,6 @@ namespace implementation {
 			"GPU7",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -937,7 +860,6 @@ namespace implementation {
 			"nsp0",
 			100000,
 			115000,
-			100000,
 			true,
 		},
 		{
@@ -946,7 +868,6 @@ namespace implementation {
 			"nsp1",
 			100000,
 			115000,
-			100000,
 			true,
 		},
 		{
@@ -955,7 +876,6 @@ namespace implementation {
 			"nsp2",
 			100000,
 			115000,
-			100000,
 			true,
 		},
 		{
@@ -964,7 +884,6 @@ namespace implementation {
 			"nsp3",
 			100000,
 			115000,
-			100000,
 			true,
 		},
 	};
@@ -976,7 +895,6 @@ namespace implementation {
 			"ibat",
 			9000,
 			10000,
-			9000,
 			true,
 		},
 		{
@@ -985,7 +903,6 @@ namespace implementation {
 			"skin",
 			46500,
 			95000,
-			46500,
 			true,
 		},
 	};
@@ -997,7 +914,6 @@ namespace implementation {
 			"ibat",
 			6000,
 			7500,
-			6000,
 			true,
 		},
 		{
@@ -1006,7 +922,6 @@ namespace implementation {
 			"skin",
 			40000,
 			95000,
-			40000,
 			true,
 		},
 	};
@@ -1017,7 +932,6 @@ namespace implementation {
 		"battery",
 		80000,
 		90000,
-		80000,
 		true,
 	};
 
@@ -1028,7 +942,6 @@ namespace implementation {
 			"vbat",
 			3200,
 			3000,
-			3200,
 			false,
 		},
 		{
@@ -1037,7 +950,6 @@ namespace implementation {
 			"socd",
 			90,
 			99,
-			90,
 			true,
 		},
 	};
@@ -1060,7 +972,6 @@ namespace implementation {
 			"",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -1069,7 +980,6 @@ namespace implementation {
 			"GPU0",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -1078,7 +988,6 @@ namespace implementation {
 			"GPU1",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -1087,7 +996,6 @@ namespace implementation {
 			"GPU2",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -1096,7 +1004,6 @@ namespace implementation {
 			"GPU3",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -1105,7 +1012,6 @@ namespace implementation {
 			"GPU4",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -1114,7 +1020,6 @@ namespace implementation {
 			"GPU5",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -1123,7 +1028,6 @@ namespace implementation {
 			"GPU6",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -1132,7 +1036,6 @@ namespace implementation {
 			"GPU7",
 			95000,
 			115000,
-			95000,
 			true,
 		},
 		{
@@ -1141,7 +1044,6 @@ namespace implementation {
 			"nsp0",
 			100000,
 			115000,
-			100000,
 			true,
 		},
 		{
@@ -1150,7 +1052,6 @@ namespace implementation {
 			"nsp1",
 			100000,
 			115000,
-			100000,
 			true,
 		},
 		{
@@ -1159,7 +1060,6 @@ namespace implementation {
 			"nsp2",
 			100000,
 			115000,
-			100000,
 			true,
 		},
 		{
@@ -1168,7 +1068,6 @@ namespace implementation {
 			"nsp3",
 			100000,
 			115000,
-			100000,
 			true,
 		},
 		{
@@ -1177,7 +1076,6 @@ namespace implementation {
 			"nsp4",
 			100000,
 			115000,
-			100000,
 			true,
 		},
 		{
@@ -1186,7 +1084,6 @@ namespace implementation {
 			"nsp5",
 			100000,
 			115000,
-			100000,
 			true,
 		},
 	};
@@ -1198,7 +1095,6 @@ namespace implementation {
 			"ibat",
 			9000,
 			10000,
-			9000,
 			true,
 		},
 		{
@@ -1207,7 +1103,6 @@ namespace implementation {
 			"skin",
 			46500,
 			95000,
-			46500,
 			true,
 		},
 	};
@@ -1347,9 +1242,9 @@ namespace implementation {
 				bcl_conf.begin(), bcl_conf.end());
 		LOG(DEBUG) << "Total sensors:" << thermalConfig.size();
 	}
-}  // namespace implementation
-}  // namespace V2_0
+
 }  // namespace thermal
 }  // namespace hardware
 }  // namespace android
+}  // namespace aidl
 

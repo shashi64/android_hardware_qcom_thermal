@@ -29,6 +29,11 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+ /* Changes from Qualcomm Innovation Center are provided under the following license:
+
+Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+SPDX-License-Identifier: BSD-3-Clause-Clear */
+
 #include <unistd.h>
 #include <linux/thermal.h>
 #include <android-base/logging.h>
@@ -37,11 +42,10 @@
 
 #include "thermalMonitorNetlink.h"
 
+namespace aidl {
 namespace android {
 namespace hardware {
 namespace thermal {
-namespace V2_0 {
-namespace implementation {
 
 using pollCB = std::function<bool()>;
 using familyCB = std::function<int(struct nl_msg *, void *)>;
@@ -301,8 +305,7 @@ void ThermalMonitor::start()
 		std::bind(&ThermalMonitor::stopPolling, this));
 }
 
-}  // namespace implementation
-}  // namespace V2_0
 }  // namespace thermal
 }  // namespace hardware
 }  // namespace android
+}  // namespace aidl
