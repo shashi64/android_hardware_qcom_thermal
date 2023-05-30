@@ -1081,6 +1081,80 @@ namespace thermal {
 		},
 	};
 
+	std::vector<std::string> cpu_sensors_crow =
+	{
+		"cpu-0-0",
+		"cpu-0-1",
+		"cpu-0-2",
+		"cpu-0-3",
+		"cpu-1-0",
+		"cpu-1-2",
+		"cpu-1-4",
+		"cpu-1-6",
+	};
+
+	std::vector<struct target_therm_cfg>  crow_common = {
+		{
+			TemperatureType::CPU,
+			cpu_sensors_crow,
+			"",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-0" },
+			"GPU0",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-1" },
+			"GPU1",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nspss-0" },
+			"nsp0",
+			100000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nspss-1" },
+			"nsp1",
+			100000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nspss-2" },
+			"nsp2",
+			100000,
+			115000,
+			true,
+		},
+	};
+
+	std::vector<struct target_therm_cfg>  crow_specific = {
+		{
+			TemperatureType::SKIN,
+			{ "sys-therm-3" },
+			"skin",
+			60000,
+			95000,
+			true,
+		},
+	};
+
 	std::vector<struct target_therm_cfg>  diwali_specific = {
 		{
 			TemperatureType::BCL_CURRENT,
@@ -2092,6 +2166,7 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{581, ravelin_common}, //Clarence IOT
 		{582, ravelin_common}, //Clarence IOT without modem
 		{591, waipio_common}, //ukee
+		{608, crow_common}, //crow
 	};
 
 	const std::unordered_map<int, std::vector<struct target_therm_cfg>>
@@ -2135,6 +2210,7 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{583, parrot_specific}, //Netrani mobile without modem
 		{613, parrot_specific}, //Netrani APQ
 		{591, waipio_specific}, //ukee
+		{608, crow_specific}, //crow
 	};
 
 	const std::unordered_map<int, bool>
