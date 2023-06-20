@@ -2116,6 +2116,8 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{367, sensor_cfg_sa8155_common}, //auto
 		{405, sensor_cfg_sa8195_common}, //auto
 		{356, kona_common}, // kona
+		{481, kona_common}, //kona iot
+		{548, kona_common}, //kona iot
 		{415, lahaina_common}, // lahaina
 		{439, lahaina_common}, // lahainap
 		{456, lahaina_common}, // lahaina-atp
@@ -2172,6 +2174,8 @@ std::vector<std::string> cpu_sensors_cliffs = {
 	const std::unordered_map<int, std::vector<struct target_therm_cfg>>
 		msm_soc_specific = {
 		{356, kona_specific}, // kona
+		{481, kona_specific}, //kona iot
+		{548, kona_specific}, //kona iot
 		{415, lahaina_specific}, // lahaina
 		{439, lahaina_specific}, // lahainap
 		{456, lahaina_specific}, // lahaina-atp
