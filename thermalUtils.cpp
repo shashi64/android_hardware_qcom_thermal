@@ -96,7 +96,7 @@ void ThermalUtils::Notify(struct therm_sensor& sens)
 
 void ThermalUtils::ueventParse(std::string sensor_name, int temp)
 {
-	LOG(INFO) << "uevent triggered for sensor: " << sensor_name
+	LOG(DEBUG) << "uevent triggered for sensor: " << sensor_name
 		<< std::endl;
 	if (thermalConfig.find(sensor_name) == thermalConfig.end()) {
 		LOG(DEBUG) << "sensor is not monitored:" << sensor_name
