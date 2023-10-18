@@ -2318,7 +2318,9 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{467, sensor_cfg_trinket},
 		{468, sensor_cfg_trinket},
 		{317, sensor_cfg_sdm660},
+		{318, sensor_cfg_sdm660}, // sdm630
 		{345, sensor_cfg_sdm660}, // sdm636
+		{385, sensor_cfg_sdm660}, // sdm455
 		{400, sensor_cfg_lito}, // lito
 		{440, sensor_cfg_lito},
 		{407, sensor_cfg_lito}, // atoll
