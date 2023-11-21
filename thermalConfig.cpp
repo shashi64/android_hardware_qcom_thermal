@@ -1317,6 +1317,53 @@ std::vector<std::string> cpu_sensors_cliffs = {
 			true,
 		},
 	};
+
+	std::vector<std::string> cpu_sensors_monaco = {
+		"cpuss-0",
+		"cpuss-0",
+		"cpuss-0",
+		"cpuss-0",
+		"cpuss-1",
+		"cpuss-1",
+		"cpuss-1",
+		"cpuss-1",
+	};
+
+	std::vector<struct target_therm_cfg> sensor_cfg_monaco = {
+		{
+			TemperatureType::CPU,
+			cpu_sensors_monaco,
+			"",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpu" },
+			"gpu",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::SKIN,
+			{ "pa-therm0" },
+			"skin",
+			40000,
+			95000,
+			true,
+		},
+		{
+			TemperatureType::BCL_CURRENT,
+			{ "pm5100-ibat-lvl0" },
+			"ibat",
+			1100,
+			1500,
+			true,
+		},
+	};
+
 	const std::unordered_map<int, std::vector<struct target_therm_cfg>>
 		msm_soc_map = {
 		{355, sensor_cfg_talos_common},
@@ -1374,6 +1421,8 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{577, pineapple_common}, //Pineapplep
 		{632, cliffs_common}, //cliffs
 		{614, cliffs_common}, //cliffs7
+		{486, sensor_cfg_monaco}, // monaco
+		{517, sensor_cfg_monaco}, // monaco
 	};
 
 	const std::unordered_map<int, std::vector<struct target_therm_cfg>>
