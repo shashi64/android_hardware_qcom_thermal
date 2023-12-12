@@ -115,6 +115,58 @@ namespace thermal {
 		},
 	};
 
+	std::vector<std::string> cpu_sensors_talos =
+	{
+		"cpuss-2",
+		"cpuss-2",
+		"cpuss-1",
+		"cpuss-1",
+		"cpuss-0",
+		"cpuss-0",
+		"cpu-1-0",
+		"cpu-1-2",
+	};
+
+	std::vector<struct target_therm_cfg>  sensor_cfg_talos_common =
+	{
+		{
+			TemperatureType::CPU,
+			cpu_sensors_talos,
+			"",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpu" },
+			"gpu",
+			95000,
+			115000,
+			true,
+		},
+	};
+
+	std::vector<struct target_therm_cfg>  sensor_cfg_sa6155_common =
+	{
+		{
+			TemperatureType::CPU,
+			cpu_sensors_talos,
+			"",
+			105000,
+			118000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpu" },
+			"gpu",
+			105000,
+			118000,
+			true,
+		},
+	};
+
 	std::vector<std::string> cpu_sensors_khaje =
 	{
 		"cpuss-0",
@@ -414,6 +466,115 @@ namespace thermal {
 		},
 	};
 
+	std::vector<std::string> cpu_sensors_msmnile =
+	{
+		"cpu-0-0",
+		"cpu-0-1",
+		"cpu-0-2",
+		"cpu-0-3",
+		"cpu-1-0",
+		"cpu-1-1",
+		"cpu-1-2",
+		"cpu-1-3",
+	};
+
+	std::vector<struct target_therm_cfg>  sensor_cfg_msmnile_common = {
+		{
+			TemperatureType::CPU,
+			cpu_sensors_msmnile,
+			"",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-0" },
+			"gpu0",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-1" },
+			"gpu1",
+			95000,
+			115000,
+			true,
+		},
+	};
+
+	std::vector<struct target_therm_cfg>  sensor_cfg_sa8155_common = {
+		{
+			TemperatureType::CPU,
+			cpu_sensors_msmnile,
+			"",
+			105000,
+			118000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-0" },
+			"gpu0",
+			105000,
+			118000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-1" },
+			"gpu1",
+			105000,
+			118000,
+			true,
+		},
+	};
+
+	std::vector<struct target_therm_cfg>  sensor_cfg_sa8195_common = {
+		{
+			TemperatureType::CPU,
+			cpu_sensors_msmnile,
+			"",
+			105000,
+			118000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-0" },
+			"gpu0",
+			105000,
+			118000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-1" },
+			"gpu1",
+			105000,
+			118000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-2" },
+			"gpu2",
+			105000,
+			118000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-3" },
+			"gpu3",
+			105000,
+			118000,
+			true,
+		},
+	};
+
 	std::vector<std::string> cpu_sensors_kona =
 	{
 		"cpu-0-0-usr",
@@ -424,65 +585,6 @@ namespace thermal {
 		"cpu-1-1-usr",
 		"cpu-1-2-usr",
 		"cpu-1-3-usr",
-	};
-
-	std::vector<struct target_therm_cfg>  sensor_cfg_msmnile = {
-		{
-			TemperatureType::CPU,
-			cpu_sensors_kona,
-			"",
-			95000,
-			115000,
-			true,
-		},
-		{
-			TemperatureType::GPU,
-			{ "gpuss-0-usr" },
-			"gpu0",
-			95000,
-			115000,
-			true,
-		},
-		{
-			TemperatureType::GPU,
-			{ "gpuss-1-usr" },
-			"gpu1",
-			95000,
-			115000,
-			true,
-		},
-		{
-			TemperatureType::SKIN,
-			{ "xo-therm" },
-			"skin",
-			40000,
-			95000,
-			true,
-		},
-		{
-			TemperatureType::BCL_CURRENT,
-			{ "pm8150b-ibat-lvl0" },
-			"ibat",
-			4500,
-			5000,
-			true,
-		},
-		{
-			TemperatureType::BCL_VOLTAGE,
-			{ "pm8150b-vbat-lvl0" },
-			"vbat",
-			3200,
-			3000,
-			false,
-		},
-		{
-			TemperatureType::BCL_PERCENTAGE,
-			{ "soc" },
-			"soc",
-			10,
-			2,
-			false,
-		},
 	};
 
 	std::vector<struct target_therm_cfg>  kona_common = {
@@ -1215,8 +1317,59 @@ std::vector<std::string> cpu_sensors_cliffs = {
 			true,
 		},
 	};
+
+	std::vector<std::string> cpu_sensors_monaco = {
+		"cpuss-0",
+		"cpuss-0",
+		"cpuss-0",
+		"cpuss-0",
+		"cpuss-1",
+		"cpuss-1",
+		"cpuss-1",
+		"cpuss-1",
+	};
+
+	std::vector<struct target_therm_cfg> sensor_cfg_monaco = {
+		{
+			TemperatureType::CPU,
+			cpu_sensors_monaco,
+			"",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpu" },
+			"gpu",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::SKIN,
+			{ "pa-therm0" },
+			"skin",
+			40000,
+			95000,
+			true,
+		},
+		{
+			TemperatureType::BCL_CURRENT,
+			{ "pm5100-ibat-lvl0" },
+			"ibat",
+			1100,
+			1500,
+			true,
+		},
+	};
+
 	const std::unordered_map<int, std::vector<struct target_therm_cfg>>
 		msm_soc_map = {
+		{355, sensor_cfg_talos_common},
+		{377, sensor_cfg_sa6155_common}, // auto
+		{380, sensor_cfg_sa6155_common}, // auto
+		{384, sensor_cfg_sa6155_common}, // auto
 		{417, sensor_cfg_bengal}, // bengal
 		{420, sensor_cfg_bengal},
 		{444, sensor_cfg_bengal},
@@ -1236,10 +1389,11 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{435, sensor_cfg_lito},
 		{459, sensor_cfg_lito},
 		{476, sensor_cfg_lito}, // orchid
-		{339, sensor_cfg_msmnile},
-		{361, sensor_cfg_msmnile},
-		{362, sensor_cfg_msmnile},
-		{367, sensor_cfg_msmnile},
+		{339, sensor_cfg_msmnile_common},
+		{361, sensor_cfg_msmnile_common},
+		{362, sensor_cfg_sa8155_common}, //auto
+		{367, sensor_cfg_sa8155_common}, //auto
+		{405, sensor_cfg_sa8195_common}, //auto
 		{356, kona_common}, // kona
 		{415, lahaina_common}, // lahaina
 		{439, lahaina_common}, // lahainap
@@ -1249,6 +1403,7 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{450, lahaina_common}, // shima
 		{454, sensor_cfg_holi}, // holi
 		{507, sensor_cfg_holi}, //blair
+		{578, sensor_cfg_holi}, //conic
 		{475, sensor_cfg_yupik}, // yupik
 		{515, sensor_cfg_yupik}, // YUPIK-LTE
 		{457, waipio_common}, //Waipio
@@ -1266,6 +1421,8 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{577, pineapple_common}, //Pineapplep
 		{632, cliffs_common}, //cliffs
 		{614, cliffs_common}, //cliffs7
+		{486, sensor_cfg_monaco}, // monaco
+		{517, sensor_cfg_monaco}, // monaco
 	};
 
 	const std::unordered_map<int, std::vector<struct target_therm_cfg>>
@@ -1294,6 +1451,16 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{614, cliffs_specific}, //cliffs7
 	};
 
+	const std::unordered_map<int, bool>
+		battery_bcl_cfg_disable_map = {
+		{377, true},
+		{380, true},
+		{384, true},
+		{362, true},
+		{367, true},
+		{405, true},
+	};
+
 	std::vector<struct target_therm_cfg> add_target_config(
 			int socID,
 			std::vector<struct target_therm_cfg> conf)
@@ -1312,6 +1479,7 @@ std::vector<std::string> cpu_sensors_cliffs = {
 	ThermalConfig::ThermalConfig():cmnInst()
 	{
 		std::unordered_map<int, std::vector<struct target_therm_cfg>>::const_iterator it;
+		std::unordered_map<int, bool>::const_iterator it_2;
 		std::vector<struct target_therm_cfg>::iterator it_vec;
 		bool bcl_defined = false;
 		std::string soc_val;
@@ -1349,10 +1517,13 @@ std::vector<std::string> cpu_sensors_cliffs = {
 				bcl_defined = true;
 		}
 
-		thermalConfig.push_back(bat_conf);
-		if (!bcl_defined)
-			thermalConfig.insert(thermalConfig.end(),
-				bcl_conf.begin(), bcl_conf.end());
+		it_2 = battery_bcl_cfg_disable_map.find(soc_id);
+		if (it_2 == battery_bcl_cfg_disable_map.end() || !it_2->second) {
+			thermalConfig.push_back(bat_conf);
+			if (!bcl_defined)
+				thermalConfig.insert(thermalConfig.end(),
+					bcl_conf.begin(), bcl_conf.end());
+		}
 		LOG(DEBUG) << "Total sensors:" << thermalConfig.size();
 	}
 
