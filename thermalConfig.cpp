@@ -1415,7 +1415,7 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		},
 	};
 
-std::vector<std::string> cpu_sensors_niobe = {
+	std::vector<std::string> cpu_sensors_niobe = {
 		"cpu-0-0-0",
 		"cpu-0-1-0",
 		"cpu-1-0-0",
@@ -1552,6 +1552,87 @@ std::vector<std::string> cpu_sensors_niobe = {
 		},
 	};
 
+	std::vector<std::string> cpu_sensors_volcano = {
+		"cpu-0-0-0",
+		"cpu-0-1-0",
+		"cpu-0-2-0",
+		"cpu-1-0-0",
+		"cpu-1-1-0",
+		"cpu-1-2-0",
+		"cpu-1-3-0",
+		"cpu-1-3-1",
+	};
+
+	std::vector<struct target_therm_cfg> volcano_common = {
+		{
+			TemperatureType::CPU,
+			cpu_sensors_volcano,
+			"",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-0" },
+			"GPU0",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::GPU,
+			{ "gpuss-1" },
+			"GPU1",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nsphvx-0" },
+			"nsp0",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nsphvx-1" },
+			"nsp1",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nsphmx-0" },
+			"nsp2",
+			95000,
+			115000,
+			true,
+		},
+		{
+			TemperatureType::NPU,
+			{ "nsphmx-1" },
+			"nsp3",
+			95000,
+			115000,
+			true,
+		},
+	};
+
+	std::vector<struct target_therm_cfg>  volcano_specific = {
+		{
+			TemperatureType::SKIN,
+			{ "sys-therm-0" },
+			"skin",
+			60000,
+			95000,
+			true,
+		},
+	};
+
 	const std::unordered_map<int, std::vector<struct target_therm_cfg>>
 		msm_soc_map = {
 		{355, sensor_cfg_talos_common},
@@ -1613,6 +1694,8 @@ std::vector<std::string> cpu_sensors_niobe = {
 		{517, sensor_cfg_monaco}, // monaco
 		{623, sensor_cfg_pitti}, // Kalpeni
 		{629, niobe_common}, //Matrix
+		{636, volcano_common}, //milos
+		{640, volcano_common}, //milos6
 	};
 
 	const std::unordered_map<int, std::vector<struct target_therm_cfg>>
@@ -1641,6 +1724,8 @@ std::vector<std::string> cpu_sensors_niobe = {
 		{614, cliffs_specific}, //cliffs7
 		{623, pitti_specific}, // Kalpeni
 		{629, niobe_specific}, // Matrix
+		{636, volcano_specific}, //milos
+		{640, volcano_specific}, //milos6
 	};
 
 	const std::unordered_map<int, bool>
