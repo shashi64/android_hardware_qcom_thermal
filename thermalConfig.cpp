@@ -1694,6 +1694,7 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{517, sensor_cfg_monaco}, // monaco
 		{623, sensor_cfg_pitti}, // Kalpeni
 		{629, niobe_common}, //Matrix
+		{652, niobe_common}, // Matrix_4k
 		{636, volcano_common}, //milos
 		{640, volcano_common}, //milos6
 	};
@@ -1724,6 +1725,7 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{614, cliffs_specific}, //cliffs7
 		{623, pitti_specific}, // Kalpeni
 		{629, niobe_specific}, // Matrix
+		{652, niobe_specific}, // Matrix_4k
 		{636, volcano_specific}, //milos
 		{640, volcano_specific}, //milos6
 	};
