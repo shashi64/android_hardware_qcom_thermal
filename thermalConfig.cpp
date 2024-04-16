@@ -1697,6 +1697,8 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{652, niobe_common}, // Matrix_4k
 		{636, volcano_common}, //milos
 		{640, volcano_common}, //milos6
+		{657, volcano_common}, //milos IOT with modem
+		{658, volcano_common}, //milos IOT
 	};
 
 	const std::unordered_map<int, std::vector<struct target_therm_cfg>>
@@ -1728,6 +1730,8 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		{652, niobe_specific}, // Matrix_4k
 		{636, volcano_specific}, //milos
 		{640, volcano_specific}, //milos6
+		{657, volcano_specific}, //milos IOT with modem
+		{658, volcano_specific}, //milos IOT
 	};
 
 	const std::unordered_map<int, bool>
