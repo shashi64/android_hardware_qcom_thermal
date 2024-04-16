@@ -1598,14 +1598,6 @@ std::vector<std::string> cpu_sensors_cliffs = {
 		},
 		{
 			TemperatureType::NPU,
-			{ "nsphvx-1" },
-			"nsp1",
-			95000,
-			115000,
-			true,
-		},
-		{
-			TemperatureType::NPU,
 			{ "nsphmx-0" },
 			"nsp2",
 			95000,
