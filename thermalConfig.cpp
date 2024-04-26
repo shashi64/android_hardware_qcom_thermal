@@ -1398,14 +1398,6 @@ std::vector<std::string> cpu_sensors_cliffs = {
 
 	std::vector<struct target_therm_cfg>  pitti_specific = {
 		{
-			TemperatureType::BCL_CURRENT,
-			{ "pm7250b-ibat-lvl0" },
-			"ibat",
-			6000,
-			7500,
-			true,
-		},
-		{
 			TemperatureType::SKIN,
 			{ "sys-therm-3" },
 			"skin",
